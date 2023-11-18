@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>
+<div class="image">
+  <div class="container">
+    <form class="row" [formGroup]="form" (ngSubmit)="submit(explore)">
+      <div class="col-md-3 mt-4">
+        <div class="form-group">
+          <label for="from" class="form-label"><strong>From 🔼</strong></label><br>
+          <select required name="from" id="from" class="form-control" formControlName="from">
+            <option value='' selected disabled hidden>Select a city</option>
+            <option>Hyderabad</option>
+            <option>Chennai</option>
+            <option>Goa</option>
+            <option>Mumbai</option>
+          </select>
+          <div *ngIf="getControls().from.invalid && getControls().from.touched">
+            <p *ngIf="getControls().from.errors?.required" class="text-danger"><strong>Select a city</strong></p>
+          </div>
+          <div *ngIf="form.controls['from'].touched && form.controls['from'].valid">
+            <div *ngIf="form.controls['from'].value == form.controls['to'].value" class="text-danger font-weight-bold">Same Cities cannot be selected</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mt-4">
+        <div class="form-group">
+          <label for="from" class="form-label"><strong>To 🔽</strong></label><br>
+          <select required name="to" id="to" class="form-control" formControlName="to">
+            <option value='' selected disabled hidden>Select a city</option>
+            <option>Hyderabad</option>
+            <option>Chennai</option>
+            <option>Goa</option>
+            <option>Mumbai</option>
+          </select>
+          <div *ngIf="getControls().to.invalid && getControls().to.touched">
+            <p *ngIf="getControls().to.errors?.required" class="text-danger"><strong>Select a city</strong></p>
+        </div>
+       </div>
+      </div>
+      <div class="col-md-3 mt-4">
+        <div class="form-group">
+          <label class="form-label"><strong>Travel Date 📅</strong></label><br>
+            <input required class="form-control" type="date" min="{{minDate}}" name="travelDate" id="travelDate" formControlName="travelDate">
+            <div *ngIf="getControls().travelDate.invalid && getControls().travelDate.touched">
+              <p *ngIf="getControls().travelDate.errors?.required" class="text-danger"><strong>Select Travel Date</strong></p>
+            </div>
+           </div>
+      </div>
+      <div class="col-md-3 mt-4">
+        <button [disabled]=!form.valid type="submit" onclick="disableForm()" class="btn btn-success px-4 mx-2 mt-4">Plan Trip</button>  
+        <div class="row mt-4">
+           <button onclick="enaForm()" id="wrapper_1">Edit</button> <div class="separator"></div>
+          <button (click)="clearForm()" id="wrapper_2" type="reset">Clear</button>
+        </div>
+      </div> 
+    </form>
+    
+
+    <div class="font-weight-bold mt-5" style="color: darkblue; font-size: large;">
+      <h4>{{this.error}}</h4>
+    </div>
+    
+      <table  class="table mt-5 rounded-pill" *ngIf="display">
+        <thead class="thead-dark">
+          <h4 class="mt-5 font-weight-bold"><u>Select Bus</u></h4><br>
+          <tr class="table-dark">
+            <th>Bus Type 🚌</th>
+            <th>Departure ⬆</th>
+            <th>Arrival ⬇</th>
+            <th>Date 📆</th>
+            <th>Available 💺</th>
+            <th>Fare 💸</th>
+            <th> </th>
+          </tr>
+        </thead>
+        <tbody>
+    
+          <tr *ngFor="let i of Array" class="text-light bg-secondary">
+           <td><strong>{{i.busType}}</strong></td>
+           <td><strong>{{i.departure}}</strong></td>
+           <td><strong>{{i.arrival}}</strong></td>
+           <td><strong>{{i.date}}</strong></td>
+           <td> <strong>{{40-i.bookedSeats.length}}</strong></td>
+           <td><strong>₹{{i.fare}}.00</strong></td>
+           <td><button class="btn btn-success" (click)="viewSeats()" routerLink="/seats">View Seats</button></td>
+          </tr>
+        </tbody>
+   
+      </table>
+      
+    </div>
+</div>
+<app-dashboard></app-dashboard>

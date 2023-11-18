@@ -1,0 +1,45 @@
+.lgBnr.gr-bus {
+    background: #fff url(https://gos3.ibcdn.com/bus-1616762332.png) 0 0 no-repeat;
+    background-size: cover;
+}
+.lgBnr {
+    width: 343px;
+    height: 432px;
+    background-color: #fff;
+    border-radius: 20px 0 0 20px;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 40px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.color {
+    background-color: rgba(42, 78, 99);
+}
+.image {
+    /* background-image: url(../../assets/images/bus-signin.jpg); */
+    background-color: aquamarine;
+    background-repeat: no-repeat;
+    height: 90vh; 
+    background-size: cover;
+}
+.col-7 {
+    background-color: aquamarine;
+    background: rgba(42, 78, 99, 0.9);
+    border-radius: 0px 20px 20px 0px;
+}
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 10px solid blue;
+    border-right: 10px solid greenyellow;
+    border-bottom: 10px solid red;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}

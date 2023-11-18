@@ -1,0 +1,40 @@
+
+<nav class="navbar color">
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+      <a class="navbar-brand text-light font-weight-bold">KALYAN TRAVELS 🚍</a>
+    </div>
+  </nav>
+
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link text-light font-weight-bold" type="button" (click)="logout()">Logout</a>
+  </li>
+  </ul>
+</nav>
+        <div class="headers">
+          <div class="text-center">
+            <li routerLinkActive="active" style="width: 75%;border-radius: 15px 15px 0 0;">
+              
+              <a [ngClass]="{ selected: buses, disabled: !buses }" routerLink="/plantravel">
+                <span class="circle badge rounded-pill font-weight-bold">1</span> Plan Your Travel</a>
+            </li>
+          </div>
+          <div class="text-center">
+            <li routerLinkActive="active" style="width: 85%;border-radius: 15px 15px 0 0;">
+              <a routerLink="/seats" [ngClass]="{ selected: buses1, disabled: !buses1 }">
+                <span class="circle badge rounded-pill font-weight-bold">2</span>&nbsp; Select Your Seats</a>
+            </li>
+          </div>
+          <div class="text-center">
+            <li routerLinkActive="active" style="width: 85%;border-radius: 15px 15px 0 0;">
+              <a routerLink="/pay" [ngClass]="{ selected: pay, disabled: !pay }">
+                <span class="circle badge rounded-pill font-weight-bold">3</span>&nbsp; Payment</a>
+            </li>
+          </div>
+          <div class="text-center">
+            <li routerLinkActive="active" style="width: 70%;border-radius: 15px 15px 0 0;">
+              <a routerLink="/ticketconfirm"> &nbsp; Ticket Confirmation</a>
+            </li>
+          </div>
+        </div>

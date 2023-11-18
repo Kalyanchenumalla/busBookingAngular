@@ -1,0 +1,12 @@
+.color {
+    background-color: rgba(42, 78, 99);
+}
+.card-header {
+    font-size: 35px;
+}
+.image {
+    background-image: url(../../assets/images/7iJR.gif);
+    height: 55vh;
+    background-repeat: no-repeat;
+    margin-left: 400px;
+  }

@@ -1,0 +1,107 @@
+<nav class="navbar color">
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+      <a class="navbar-brand text-light font-weight-bold">KALYAN TRAVELS</a>
+    </div>
+  </nav>
+
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link text-light font-weight-bold" type="button" routerLink="/home">Home</a>
+  </li>
+    <li class="nav-item">
+        <a class="nav-link text-light font-weight-bold" style="margin-left: 50px;" routerLink="/login">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light font-weight-bold" style="margin-left: 50px;" routerLink="/register">Register</a>
+    </li>
+  </ul>
+</nav>
+<div class="image">
+  <div class="container" style="margin-left: 396px;">
+    <div class="row">
+        <div class="col-6 py-2 px-5 border border-dark">
+          <div *ngIf="showEmailExists" class="bg-danger font-weight-bold"> ⚠ Email already Exists. You can try signing in...</div>
+            <h2>Create</h2>
+            <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+ 
+              <!-- Name -->
+              <div class="form-group">
+                <label for="username"></label>
+                <input type="text" id="username" class="form-control" placeholder="Name" formControlName="username">
+                <div *ngIf="getControls().username.touched && getControls().username.invalid">
+                    <p *ngIf="getControls().username.errors?.required" class="text-danger font-weight-bold">Name is required</p>
+                    <p *ngIf="getControls().username.errors?.minlength || getControls().username.errors?.maxlength || getControls().username.errors?.pattern" class="text-danger font-weight-bold">Accepts alphabets, Space & Min 5 to Max 30 characters</p>
+                </div>
+              </div>
+              
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email"></label>
+                <input type="text" id="email" class="form-control" placeholder="Email" formControlName="email">
+                <div *ngIf="getControls().email.touched && getControls().email.invalid">
+                    <p *ngIf="getControls().email.errors?.required" class="text-danger font-weight-bold">Email is required</p>
+                    <p *ngIf="getControls().email.errors?.pattern" class="text-danger font-weight-bold">Invalid Email Address</p>
+                </div>
+              </div>
+
+              <!-- Mobile Number -->
+              <div class="form-group">
+                <label for="mobileNumber" class="form-label"></label>
+                <input type="text" id="mobileNumber" class="form-control" placeholder="Mobile Number" formControlName="mobileNumber">
+                <div *ngIf="getControls().mobileNumber.touched && getControls().mobileNumber.invalid">
+                  <p *ngIf="getControls().mobileNumber.errors?.required" class="text-danger font-weight-bold">Mobile Number is required</p>
+                  <p *ngIf="getControls().mobileNumber.errors?.minlength || getControls().mobileNumber.errors?.maxlength || getControls().mobileNumber.errors?.pattern" class="text-danger font-weight-bold">Invalid Mobile Number</p>
+                </div>
+              </div>
+
+              <!-- Password -->
+              <div class="form-group">
+                <label for="password" class="form-label"></label>
+                <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
+                <div *ngIf="getControls().password.touched && getControls().password.invalid">
+                  <p *ngIf="getControls().password.errors?.required" class="text-danger font-weight-bold">Password is required</p>
+                  <p *ngIf="getControls().password.errors?.minlength || getControls().password.errors?.maxlength || getControls().password.errors?.pattern" class="text-danger font-weight-bold">Password should be between 6 and 30 characters, should include Alphabets, Numbers and Special characters</p>
+                </div>
+              </div>
+            
+              <!-- DOB -->
+              <div class="form-group">
+                <label for="birthDate" class="form-label"></label>
+                <input type="date" id="birthDate" max="{{maxDate}}" class="form-control" formControlName="birthDate">
+                <div *ngIf="getControls().birthDate.touched && getControls().birthDate.invalid">
+                    <p *ngIf="getControls().birthDate.errors?.required" class="text-danger font-weight-bold">Date of Birth is required</p>
+                </div>
+              </div>
+
+                <!--Gender-->
+              <div class="form-check-inline">
+                <input type="radio" id="male" name="gender" value="male" formControlName="gender">
+                <label class="m-1" for="male">Male</label>
+              </div>
+              <div class="form-check-inline">
+                <input type="radio" id="female" name="gender" value="female" formControlName="gender">
+                <label class="m-1" for="female">Female</label>
+              </div>
+
+              <!-- Submit -->
+              <div class="radio">
+                <input type="submit" class="btn btn-success px-4 mx-2" value="Create Account" [disabled]=!form.valid>
+                <input type="reset" class="btn btn-danger mx-2 px-4" value="Reset">
+              </div>
+
+              <div class="row" *ngIf="showMsg">
+                <div class="col-xs-12">
+                  <p class="alert text-light">
+                    <strong>Registration successfull! Redirecting to Login Page</strong>
+                  </p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <p>Already have an account? <a class="text-light font-weight-bold" routerLink='/login'>Sign in here</a></p>
+              </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>

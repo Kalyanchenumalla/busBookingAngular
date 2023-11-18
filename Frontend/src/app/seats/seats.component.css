@@ -1,0 +1,81 @@
+ .image {
+    background-image: linear-gradient(to bottom right, #ffecd2,#fcb69f);
+
+
+  }
+  .container {
+    padding:15px;
+  }
+  
+  .show-bus-details {
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    color: black;
+  }
+  .seat-layout {
+    display: flex;
+    width: 30%;
+    height: 80%;
+    margin-right: 5%;
+    align-content: center;
+    border-radius: 10px;
+    background: rgba(112, 77, 77, 0.9);
+    background-color: rgba(255, 255, 255, 1);
+  }
+  .user-info {
+    background-attachment: local;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    width: 50%;
+    padding: 6px;
+    color: black;
+    
+  }
+  .seat-layout {
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 70vh;
+    width: 18vw;
+  } 
+  
+  .seat {
+    cursor: pointer;
+    width: 20%;
+    height: 7%;
+    margin: 5px;
+    background-image: url(../../assets/images/icons8-sitting-on-chair-24bluepainted.png);
+    background-repeat: no-repeat;
+    transform: scaleX(-1);
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px solid black;
+  }
+  .booked-seat {
+    cursor: not-allowed;
+    background-image: url(../../assets/images/icons8-sitting-on-chair-24red.png);
+    background-repeat: no-repeat;
+  }
+  .clicked-seat { 
+    background-image: url(../../assets/images/icons8-sitting-on-chair-24blue.png);
+    background-repeat: no-repeat;
+    margin-right: 5px;
+   }  
+   .seat .numhover {
+    visibility: hidden;
+    width: 18px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    /* padding: 5px 0; */
+    position: absolute;
+    z-index: 1;
+    /* margin-top: 30px; */
+    margin-left: 24px;
+   }
+   .seat:hover .numhover {
+     visibility: visible;
+    transform: scaleX(-1);
+   }

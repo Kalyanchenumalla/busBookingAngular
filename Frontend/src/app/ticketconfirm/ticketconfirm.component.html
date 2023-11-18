@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+  <div id="demo">
+    <h6 *ngFor="let j of busdetails" class="text-center text-info"> A Trip From {{j.from}} to {{j.to}}</h6>
+
+    <div class="fonty text-center text-success font-weight-bold">Booking Successful ✅
+      <div style="display: flex; margin-left: 985px; font-size: 65%;">Booking ID: {{bookingid}}</div>
+    </div>
+    <div class="text-center text-info font-weight-bold">Thank you for using Kalyan Travels</div>
+   <div id="ticket">
+    <strong *ngFor="let j of busdetails" class="fonty">{{j.busType}}</strong>
+    <p *ngFor="let j of busdetails">Travel Date: {{j.travelDate}} </p>
+  
+  <hr style="border-top: 1px dotted black;">
+      <div  class="row font-weight-bold">
+      <div  class="col">
+        <p *ngFor="let j of busdetails" class="text-center">Departure ⬆: {{j.departure}}</p>
+        <p *ngFor="let j of busdetails" class="text-center">{{j.from}}</p>
+      </div>
+      <hr style="border-top: 2px dashed black; width: 100px;">
+      <div  class="col text-end">
+       <p *ngFor="let j of busdetails" class="text-center">Arrival ⬇: {{j.arrival}}</p>
+        <p *ngFor="let j of busdetails" class="text-center">{{j.to}}</p>
+      </div>
+     </div>
+
+     <hr style="border-top: 1px dotted black;">
+     
+     <p class="text-success "><strong>Ticket Status:</strong> Confirmed ☑</p>
+     <hr style="border-top: 1px dotted black;">
+     <p class="font-weight-bold text-info">Passenger Details</p>
+        <p *ngFor="let j of sdetails"><strong>Name:</strong> {{j.name}}, <small><strong>Gender:</strong> {{j.gender}}</small><br><strong>Seat Number:</strong> {{j.seatNo}}</p>
+       <hr style="border-top: 1px dotted black;">
+        <p class="font-weight-bold text-info">Fare & Payment Details</p>
+           <p *ngFor="let j of busdetails"><small><strong>Ticket Fare:</strong> ₹ {{j.fare}}</small><br> <small><strong>Service Charge:</strong> ₹ 150</small><br><strong>Total Amount Paid: ₹ {{totalAmount}}.00</strong></p>
+     <hr style="border-top: 1px dotted black;">
+
+        <div class="font-weight-bold text-center pl-3 pb-4 pt-4 mt-4 mb-4 bg-light rounded-pill">🎉✨We wish you a Safe & Happy Journey</div>
+      </div>
+    </div>
+      <button printSectionId="demo" ngxPrint class="bg-warning rounded-pill mb-4" style="margin-left:570px;">Download Ticket</button>

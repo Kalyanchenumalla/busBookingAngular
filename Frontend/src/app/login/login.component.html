@@ -1,0 +1,90 @@
+<nav class="navbar color">
+  <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+      <a class="navbar-brand text-light font-weight-bold">KALYAN TRAVELS</a>
+    </div>
+  </nav>
+
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link text-light font-weight-bold" type="button" routerLink="/home">Home</a>
+  </li>
+    <li class="nav-item">
+        <a class="nav-link text-light font-weight-bold" style="margin-left: 50px;" routerLink="/login">Login</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-light font-weight-bold" style="margin-left: 50px;" routerLink="/register">Register</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="image">
+  <div class="row justify-content-center" *ngIf="showMsg">
+    <div class="col-xs-12">
+        <div class="loader text-light font-weight-bold"> </div><strong>Signing in!!</strong>
+    </div>
+  </div>
+  <div class="row justify-content-center" *ngIf="showNotFound">
+    <div class="col-xs-12">
+      <p class="alert text-light bg-info">
+        <strong>User not found</strong>
+      </p>
+    </div>
+</div>
+  <div class="container">
+    <div class="row">
+        <div class="lgBnr gr-bus mt-5 ml-5"><div><h3 class="lgBnr__heading">Smooth Bus Rides</h3>
+          <ul class="benefitsList gr-appendTop15">
+            <li class="benefitsList__item">
+              Track live bus location</li>
+              <li class="benefitsList__item">
+                Exclusive bus operator deals</li>
+                <li class="benefitsList__item">
+                  Manage and modify bookings</li>
+                <li class="benefitsList__item">
+                  Safe Travel</li></ul>
+                </div>
+                  <div class="ofrBnr">
+                    
+                    <div class="ofrBnr__right">
+                      <p class="gr-font16 gr-greenText"><span>Get flat 5% off on your First Booking</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+          <div class="col-7 mt-5 py-5 px-5 border border-dark">
+              
+              <h2 class="text-light">Sign in</h2>
+              <form [formGroup]="form" (ngSubmit)="onLoginSubmit(form.value)">
+  
+                  <!-- Email -->
+                  <div class="form-group">
+                      <label for="email"></label>
+                      <input type="text" id="email" class="form-control" placeholder="Email" formControlName="email">
+                      <div *ngIf="getControls().email.touched && getControls().email.invalid">
+                          <p *ngIf="getControls().email.errors?.required" class="text-danger"><strong>Email is required</strong></p>
+                          <p *ngIf="getControls().email.errors?.pattern" class="text-danger"><strong>Invalid Email Address</strong></p>
+                      </div>
+                  </div>
+  
+                  <!-- Password -->
+                  <div class="form-group">
+                      <label for="password" class="form-label"></label>
+                      <input type="password" id="password" class="form-control" placeholder="Password" formControlName="password">
+                      <div *ngIf="getControls().password.touched && getControls().password.invalid">
+                      <p *ngIf="getControls().password.errors?.required" class="text-danger"><strong>Password is required</strong></p>
+                      </div>
+                  </div>
+                  <!-- Submit -->
+                  <div class="mt-5">
+                      <input type="submit" class="btn btn-success px-4 mx-2" value="Sign in" [disabled]=!form.valid>
+                  </div>
+                  
+                  <div class="text-light mt-4">
+                    <p>New around here? <a class="text-light font-weight-bold" routerLink='/register'>Register now</a></p>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>
